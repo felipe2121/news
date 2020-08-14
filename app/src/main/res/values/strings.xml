@@ -1,3 +1,22 @@
 <resources>
+
     <string name="app_name">The Fortnightly</string>
+
+    <string name="navigation_drawer_open">Sidebar Aberta</string>
+    <string name="navigation_drawer_close">Sidebar Fechada</string>
+
+    <!-- Acitons -->
+    <string name="action_search_title">Buscar</string>
+
+    <!-- Navigiton -->
+    <string name="navigation_first_page_title">Primeira página</string>
+    <string name="navigation_business_title">Negócios</string>
+    <string name="navigation_entertainment_title">Entreterimento</string>
+    <string name="navigation_general_title">Geral</string>
+    <string name="navigation_health_title">Saúde</string>
+    <string name="navigation_science_title">Ciência</string>
+    <string name="navigation_sports_title">Esportes</string>
+    <string name="navigation_technology_title">Tecnologia</string>
+
+
 </resources>

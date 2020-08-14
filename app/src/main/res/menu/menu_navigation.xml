@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_search"
+        android:title="@string/navigation_first_page_title" />
+
+    <item
+        android:id="@+id/navigation_business"
+        android:title="@string/navigation_business_title"/>
+
+    <item
+        android:id="@+id/navigation_entertainment"
+        android:title="@string/navigation_entertainment_title"/>
+
+    <item
+        android:id="@+id/navigation_genreal"
+        android:title="@string/navigation_general_title"/>
+
+    <item
+        android:id="@+id/navigation_health"
+        android:title="@string/navigation_health_title"/>
+
+    <item
+        android:id="@+id/navigation_science"
+        android:title="@string/navigation_science_title"/>
+
+    <item
+        android:id="@+id/navigation_sports"
+        android:title="@string/navigation_sports_title"/>
+
+    <item
+        android:id="@+id/navigation_technology"
+        android:title="@string/navigation_sports_title" />
+
+</menu>

@@ -6,4 +6,6 @@
 
     <color name="ic_launcher_background">#FFFFFF</color>
 
+    <color name="text_on_surace">#000000</color>
+
 </resources>
