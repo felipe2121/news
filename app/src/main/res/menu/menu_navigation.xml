@@ -32,6 +32,6 @@
 
     <item
         android:id="@+id/navigation_technology"
-        android:title="@string/navigation_sports_title" />
+        android:title="@string/navigation_technology_title" />
 
 </menu>
