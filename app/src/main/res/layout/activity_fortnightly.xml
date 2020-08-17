@@ -18,6 +18,12 @@
             app:title="@string/app_name"
             app:titleTextAppearance="@style/ToolBarTitle" />
 
+        <FrameLayout
+            android:id="@+id/conatiner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="?attr/actionBarSize"/>
+
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <com.google.android.material.navigation.NavigationView

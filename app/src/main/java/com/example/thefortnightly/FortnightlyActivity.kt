@@ -1,9 +1,14 @@
 package com.example.thefortnightly
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.Gravity
 import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
+import com.example.thefortnightly.fragment.CategoryFragment
 import kotlinx.android.synthetic.main.activity_fortnightly.*
 
 class FortnightlyActivity : AppCompatActivity() {
@@ -14,30 +19,6 @@ class FortnightlyActivity : AppCompatActivity() {
 
         setUpUI()
     }
-
-    /*override fun onRestart() {
-        super.onRestart()
-    }
-
-    override fun onStart() {
-        super.onStart()
-    }
-
-    override fun onResume() {
-        super.onResume()
-    }
-
-    override fun onPause() {
-        super.onPause()
-    }
-
-    override fun onStop() {
-        super.onStop()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-    }*/
 
     private fun setUpUI() {
 
@@ -55,12 +36,34 @@ class FortnightlyActivity : AppCompatActivity() {
         toogle.syncState()
 
         drawer.addDrawerListener(toogle)
+
+        navigation.setNavigationItemSelectedListener {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.conatiner, CategoryFragment())
+                .commit()
+            drawer.closeDrawer(GravityCompat.START)
+            true
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        if(item.itemId == R.id.action_search) {
+
+            Intent(this, SearchAcitivity::class.java).also {
+                startActivity(it)
+            }
+            return true
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+
 }
 
 
