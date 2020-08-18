@@ -8,16 +8,22 @@ import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
+import androidx.lifecycle.lifecycleScope
+import com.example.fortnightly.domain.repository.NewsRemoteRepository
 import com.example.thefortnightly.fragment.CategoryFragment
 import kotlinx.android.synthetic.main.activity_fortnightly.*
+import kotlinx.coroutines.launch
 
 class FortnightlyActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fortnightly)
-
         setUpUI()
+
+        val response = lifecycleScope.launch {
+            NewsRemoteRepository().fetchEverything("BR")
+        }
     }
 
     private fun setUpUI() {

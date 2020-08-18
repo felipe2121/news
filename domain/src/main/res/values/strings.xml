@@ -1,0 +1,12 @@
+<resources>
+
+<!-- mensagens genericas de erro -->
+<string name="network_error_try_again">Tente novamente</string>
+<string name="network_error_server">Serviço indisponível</string>
+<string name="network_error_bad_request">Tente novamente</string>
+<string name="network_error_unauthorized">Usuário não autorizado</string>
+<string name="network_error_not_found">Não encontrado</string>
+<string name="network_error_connection">Não foi possível conectar. Verifique sua conexão e tente novamente!</string>
+<string name="network_error_canceled">Tente novamente</string>
+
+</resources>
