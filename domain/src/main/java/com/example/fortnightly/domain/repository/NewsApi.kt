@@ -14,4 +14,10 @@ interface NewsApi {
         @Header(API_KEY) token: String = "f3de9e4035f145f49a9762c673aa5f8a"
     ): ArticleResponseDTO
 
+    @GET("top-headlines")
+    suspend fun fetchTopHeadlines(
+        @Query("category") category: String,
+        @Query("coutry") coutry: String = "br",
+        @Header(API_KEY) token: String = "f3de9e4035f145f49a9762c673aa5f8a"
+    ): ArticleResponseDTO
 }
