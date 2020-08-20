@@ -1,15 +1,18 @@
-package com.example.thefortnightly
+package com.example.thefortnightly.activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.bundleOf
 import androidx.core.view.GravityCompat
 import androidx.lifecycle.lifecycleScope
+import com.example.fortnightly.data.entiny.ArticleCategory
+import com.example.fortnightly.data.entiny.ArticleCategory.Companion.ARTICLE_CATEGORY
 import com.example.fortnightly.domain.repository.NewsRemoteRepository
+import com.example.thefortnightly.R
 import com.example.thefortnightly.fragment.CategoryFragment
 import kotlinx.android.synthetic.main.activity_fortnightly.*
 import kotlinx.coroutines.launch
@@ -44,6 +47,13 @@ class FortnightlyActivity : AppCompatActivity() {
         drawer.addDrawerListener(toogle)
 
         navigation.setNavigationItemSelectedListener {
+
+            val fragment = CategoryFragment().apply {
+                arguments = bundleOf(ARTICLE_CATEGORY to )
+            }
+
+            fragment.articleCategory
+
             supportFragmentManager.beginTransaction()
                 .replace(R.id.conatiner, CategoryFragment())
                 .commit()

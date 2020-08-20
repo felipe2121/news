@@ -2,7 +2,7 @@ package com.example.fortnightly.core.exception
 
 import com.example.fortnightly.core.util.StringWrapper
 
-abstract class TFException: Exception {
+open class TFException: Exception {
 
     constructor(message: String?, cause: Throwable?) : super(message, cause)
     constructor(message: String?) : super(message)

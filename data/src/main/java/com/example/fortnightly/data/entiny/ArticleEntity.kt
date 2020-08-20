@@ -5,17 +5,20 @@ import androidx.room.PrimaryKey
 import com.example.fortnightly.data.dto.SourceDTO
 
 
-enum class ArticleCategory(val categoryName: String) {
-    BUSINESS("business"),
-    ENTERTAINMENT("entertainment"),
-    GENERAL("general"),
-    HEALTH("health"),
-    SCIENCE("science"),
-    SPORTS("sports"),
-    TECHNOLOGY("technolohy");
+enum class ArticleCategory(val categoryName: String, val optionName: String) {
+    BUSINESS("business", "Negócios"),
+    ENTERTAINMENT("entertainment", "Entreterimento"),
+    GENERAL("general", "Geral"),
+    HEALTH("health", "Saúde"),
+    SCIENCE("science", "Ciência"),
+    SPORTS("sports", "Esportes"),
+    TECHNOLOGY("technolohy", "Tecnologia");
 
     companion object {
-        fun get(categoryName: String): ArticleCategory {
+
+        const val ARTICLE_CATEGORY = "article_category"
+
+        fun getByCategoryName(categoryName: String): ArticleCategory {
             return when(categoryName) {
                 BUSINESS.categoryName -> BUSINESS
                 ENTERTAINMENT.categoryName -> ENTERTAINMENT
@@ -23,9 +26,19 @@ enum class ArticleCategory(val categoryName: String) {
                 HEALTH.categoryName -> HEALTH
                 SCIENCE.categoryName -> SCIENCE
                 SPORTS.categoryName -> SPORTS
-                TECHNOLOGY.categoryName -> TECHNOLOGY
                 else -> TECHNOLOGY
             }
+        }
+
+        fun getOptionsName(optionName: String): ArticleCategory {
+            return when(option) {
+                "Negócios" -> BUSINESS
+                "Entreterimento"-> ENTERTAINMENT
+                "Saúde" -> HEALTH
+                "Ciência" -> SCIENCE
+                "Esportes" -> SPORTS
+                "Tecnologia" -> TECHNOLOGY
+                else -> GENERAL
         }
     }
 }

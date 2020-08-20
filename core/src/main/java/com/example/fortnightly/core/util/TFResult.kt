@@ -1,4 +1,4 @@
-package br.daniel.fortnightly.domain._config.result
+package com.example.fortnightly.core.util
 
 import java.io.Serializable
 

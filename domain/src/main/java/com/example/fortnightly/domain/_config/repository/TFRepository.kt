@@ -1,6 +1,6 @@
 package com.example.fortnightly.domain._config.repository
 
-import br.daniel.fortnightly.domain._config.result.TFResult
+import com.example.fortnightly.core.util.TFResult
 import com.example.fortnightly.domain._config.exception.toNetworkException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

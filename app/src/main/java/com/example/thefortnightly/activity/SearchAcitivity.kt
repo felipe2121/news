@@ -1,8 +1,8 @@
-package com.example.thefortnightly
+package com.example.thefortnightly.activity
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.thefortnightly.R
 import kotlinx.android.synthetic.main.activity_search.*
 
 class SearchAcitivity: AppCompatActivity() {

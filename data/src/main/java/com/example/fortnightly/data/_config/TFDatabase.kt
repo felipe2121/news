@@ -5,6 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.fortnightly.data.BuildConfig
+import com.example.fortnightly.data.dao.ArticleDAO
 import com.example.fortnightly.data.entiny.ArticleEntity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -47,5 +48,7 @@ abstract class TFDatabase : RoomDatabase() {
         }
 
     }
+
+    abstract val articleDAO: ArticleDAO
 
 }
