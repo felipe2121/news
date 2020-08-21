@@ -10,8 +10,10 @@ import com.example.fortnightly.domain.repository.NewsRepository
 import com.example.fortnightly.domain.usecase.GetArticleOfCategoryUseCase
 import com.example.fortnightly.domain.usecase.GetArticlesOfFirstPageUseCase
 import com.example.fortnightly.domain.usecase.SearchNewsUseCase
+import com.example.thefortnightly.viewmodel.ArticleViewModel
 import com.example.thefortnightly.viewmodel.CategoryNewsViewModel
 import org.koin.android.ext.koin.androidContext
+import org.koin.androidx.viewmodel.scope.viewModel
 import org.koin.core.context.startKoin
 import org.koin.core.module.Module
 import org.koin.dsl.module
@@ -52,6 +54,7 @@ class TFApplication : Application() {
 
             val viewModule = module {
                 factory { CategoryNewsViewModel(getArticleOfCategory = get()) }
+                factory { ArticleViewModel() }
             }
 
             modules(listOf(daoModule, repositoryModule, usecaseModule, viewModule))

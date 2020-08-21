@@ -22,6 +22,9 @@
         <activity android:name=".activity.SearchAcitivity"
             android:parentActivityName=".activity.FortnightlyActivity" />
 
+        <activity android:name=".activity.ArticleActivity"
+            android:parentActivityName=".activity.FortnightlyActivity" />
+
     </application>
 
 </manifest>

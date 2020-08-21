@@ -49,13 +49,11 @@ class FortnightlyActivity : AppCompatActivity() {
         navigation.setNavigationItemSelectedListener {
 
             val fragment = CategoryFragment().apply {
-                arguments = bundleOf(ARTICLE_CATEGORY to )
+                arguments = bundleOf(ARTICLE_CATEGORY to ArticleCategory.getByOptionsName(it.toString()))
             }
 
-            fragment.articleCategory
-
             supportFragmentManager.beginTransaction()
-                .replace(R.id.conatiner, CategoryFragment())
+                .replace(R.id.conatiner, fragment)
                 .commit()
             drawer.closeDrawer(GravityCompat.START)
             true

@@ -10,8 +10,9 @@ import kotlinx.coroutines.flow.Flow
 abstract class ArticleDAO: DAO<ArticleEntity>() {
 
     @Query("SELECT * FROM article")
-    abstract suspend fun getAll(): Flow<List<ArticleEntity>>
+    abstract fun getAll(): Flow<List<ArticleEntity>>
 
     @Query("SELECT * FROM article WHERE category = :category")
     abstract fun getByCategory(category: String): Flow<List<ArticleEntity>>
+
 }

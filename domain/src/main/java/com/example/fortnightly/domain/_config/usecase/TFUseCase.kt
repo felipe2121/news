@@ -35,19 +35,22 @@ abstract class TFUseCase<PARAMS, RESULT, out EXECUTOR : TFUseCase.UseCaseExecuto
             fun onFinish(callback: () -> Unit) = apply { _onFinish = callback }
 
             override suspend fun execute() {
-                withContext(Dispatchers.Main) { _onStarted() }
-                withContext(Dispatchers.Default) {
-                    try {
-                        execute(params).onSuccess {
-                            withContext(Dispatchers.Main) { _onSuccess(it) }
-                        }.onFailure {
-                            withContext(Dispatchers.Main) { if (it is TFException) _onFailure(it) else _onFailure(TFException(cause = it)) }
-                        }
+
+                launch {
+                    _onStarted()
+                    try{
+                        withContext(Dispatchers.Default) { execute(params) }
+                            .onSuccess {
+                                _onSuccess(it)
+                            }
+                            .onFailure {
+                                if (it is TFException) _onFailure(it) else _onFailure(TFException(cause = it))
+                            }
                     } catch (e: Exception) {
-                        withContext(Dispatchers.Main) { if (e is TFException) _onFailure(e) else _onFailure(TFException(cause = e)) }
+                        if (e is TFException) _onFailure(e) else _onFailure(TFException(cause = e))
                     }
+                    _onFinish()
                 }
-                withContext(Dispatchers.Main) { _onFinish() }
             }
         }
 

@@ -1,7 +1,10 @@
 package com.example.fortnightly.data.ui
 
+import android.os.Parcelable
 import androidx.room.PrimaryKey
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Article (
     var author: String = "",
     var title: String = "",
@@ -11,4 +14,11 @@ data class Article (
     var publisedAt: String = "",
     var content: String = "",
     var category: String = ""
-)
+): Parcelable {
+
+    companion object {
+
+        const val ARTICLE = "article"
+
+    }
+}

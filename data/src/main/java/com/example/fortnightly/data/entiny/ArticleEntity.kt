@@ -19,7 +19,7 @@ enum class ArticleCategory(val categoryName: String, val optionName: String) {
         const val ARTICLE_CATEGORY = "article_category"
 
         fun getByCategoryName(categoryName: String): ArticleCategory {
-            return when(categoryName) {
+            return when (categoryName) {
                 BUSINESS.categoryName -> BUSINESS
                 ENTERTAINMENT.categoryName -> ENTERTAINMENT
                 GENERAL.categoryName -> GENERAL
@@ -30,21 +30,21 @@ enum class ArticleCategory(val categoryName: String, val optionName: String) {
             }
         }
 
-        fun getOptionsName(optionName: String): ArticleCategory {
-            return when(option) {
-                "Negócios" -> BUSINESS
-                "Entreterimento"-> ENTERTAINMENT
-                "Saúde" -> HEALTH
-                "Ciência" -> SCIENCE
-                "Esportes" -> SPORTS
-                "Tecnologia" -> TECHNOLOGY
-                else -> GENERAL
+        fun getByOptionsName(optionName: String): ArticleCategory {
+            return when (optionName) {
+                BUSINESS.optionName -> BUSINESS
+                ENTERTAINMENT.optionName -> ENTERTAINMENT
+                GENERAL.optionName -> GENERAL
+                HEALTH.optionName -> HEALTH
+                SCIENCE.optionName -> SCIENCE
+                SPORTS.optionName -> SPORTS
+                else -> TECHNOLOGY
+            }
         }
     }
 }
-
 @Entity(tableName = "article")
-data class ArticleEntity (
+data class ArticleEntity(
     var author: String = "",
     var title: String = "",
     var description: String = "",
@@ -53,5 +53,14 @@ data class ArticleEntity (
     var publisedAt: String = "",
     var content: String = "",
     var category: String = "",
-    @PrimaryKey(autoGenerate = true) var id: Int = 1
+    @PrimaryKey(autoGenerate = true) var id: Int = 0
 )
+
+
+
+
+
+
+
+
+

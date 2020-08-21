@@ -1,22 +1,23 @@
 package com.example.thefortnightly.viewmodel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.asLiveData
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
+import com.example.fortnightly.core.util.Event
 import com.example.fortnightly.core.util.SingleMediatorLiveData
 import com.example.fortnightly.data.entiny.ArticleCategory
 import com.example.fortnightly.data.ui.Article
 import com.example.fortnightly.domain.usecase.GetArticleOfCategoryUseCase
 import com.example.fortnightly.domain.usecase.GetArticlesOfFirstPageUseCase
+import com.example.thefortnightly.view.listener.ArticleClickListener
 import kotlinx.coroutines.launch
 
 class CategoryNewsViewModel (
     private val getArticleOfCategory: GetArticleOfCategoryUseCase
-): ViewModel() {
+): ViewModel(), ArticleClickListener {
 
     private val _articles = SingleMediatorLiveData<List<Article>>()
     val articles = _articles as LiveData<List<Article>>
+
+    val onArticleCliked = MutableLiveData<Event.Data<Article>>()
 
     var articleCategory: ArticleCategory? = null
     set(value) {
@@ -27,6 +28,10 @@ class CategoryNewsViewModel (
                 _articles.emit(getArticleOfCategory.liveResult(GetArticleOfCategoryUseCase.Params(value)).asLiveData())
             }
         }
+    }
+
+    override fun onClickListener(article: Article) {
+        onArticleCliked.value = Event.Data(Article())
     }
 
     private fun loadArticlesOfCategory(category: ArticleCategory) = viewModelScope.launch {
