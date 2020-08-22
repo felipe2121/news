@@ -68,7 +68,6 @@ class FortnightlyActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         if(item.itemId == R.id.action_search) {
-
             Intent(this, SearchAcitivity::class.java).also {
                 startActivity(it)
             }

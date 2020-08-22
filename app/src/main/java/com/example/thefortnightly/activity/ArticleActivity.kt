@@ -28,16 +28,17 @@ class ArticleActivity: AppCompatActivity() {
     }
 
     private fun setupUI() {
-     setSupportActionBar(toolbar)
-     supportActionBar?.setDisplayHomeAsUpEnabled(true)
-     supportActionBar?.setHomeButtonEnabled(true)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeButtonEnabled(true)
     }
 
     private fun bindUI(article: Article) {
-
-        Glide.with(this).load(article.urlToImage).into(article_image)
-        article_title.text = article.title
-        article_body.text = article.content
+        Glide.with(this)
+            .load(article.urlToImage)
+            .into(article_image)
+            article_title.text = article.title
+            article_body.text = article.content
     }
 
     private fun subscribeUI() = viewModel.run {

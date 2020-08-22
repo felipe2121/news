@@ -10,14 +10,16 @@ import kotlinx.android.synthetic.main.view_holder_category_small.view.*
 class CategoryViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
     fun bind(article: Article, clickListener: ArticleClickListener?) {
+
         with(itemView) {
-            setOnClickListener { clickListener?.onClickListener(article) }
+            setOnClickListener { clickListener?.onClickArticle(article) }
             category_name.text = article.category
             news_title.text = article.title
 
             Glide.with(this)
-                .load("https://marginalrevolution.com/wp-content/uploads/2016/10/MR-logo-thumbnail.png")
+                .load(article.urlToImage)
                 .into(news_tumbnail)
         }
+
     }
 }

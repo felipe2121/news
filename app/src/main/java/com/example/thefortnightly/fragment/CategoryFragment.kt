@@ -55,8 +55,8 @@ class CategoryFragment: Fragment() {
 
     private fun subscribeUI() = viewModel.run {
 
-        articles.observe(viewLifecycleOwner) {
-                articles -> categoryAdapter.refresh(articles)
+        articles.observe(viewLifecycleOwner) { articles ->
+            categoryAdapter.refresh(articles)
         }
 
         onArticleCliked.observeEvent(viewLifecycleOwner) {article ->

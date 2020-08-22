@@ -30,8 +30,8 @@ class CategoryNewsViewModel (
         }
     }
 
-    override fun onClickListener(article: Article) {
-        onArticleCliked.value = Event.Data(Article())
+    override fun onClickArticle (article: Article) {
+        onArticleCliked.value = Event.Data(article)
     }
 
     private fun loadArticlesOfCategory(category: ArticleCategory) = viewModelScope.launch {
