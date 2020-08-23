@@ -19,4 +19,7 @@
     <string name="navigation_technology_title">Tecnologia</string>
 
 
+    <!-- search hints -->
+    <string name="search_hint">Buscar</string>
+
 </resources>

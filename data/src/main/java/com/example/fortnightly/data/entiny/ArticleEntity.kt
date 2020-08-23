@@ -12,7 +12,7 @@ enum class ArticleCategory(val categoryName: String, val optionName: String) {
     HEALTH("health", "Saúde"),
     SCIENCE("science", "Ciência"),
     SPORTS("sports", "Esportes"),
-    TECHNOLOGY("technolohy", "Tecnologia");
+    TECHNOLOGY("technology", "Tecnologia");
 
     companion object {
 

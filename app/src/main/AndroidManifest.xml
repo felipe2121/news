@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.SearchAcitivity"
+        <activity android:name=".activity.SearchArticleAcitivity"
             android:parentActivityName=".activity.FortnightlyActivity" />
 
         <activity android:name=".activity.ArticleActivity"

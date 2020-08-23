@@ -1,6 +1,5 @@
 package com.example.fortnightly.domain.usecase
 
-import android.app.DownloadManager
 import com.example.fortnightly.core.exception.TFException
 import com.example.fortnightly.core.util.TFResult
 import com.example.fortnightly.core.util.map
@@ -8,9 +7,9 @@ import com.example.fortnightly.data.toUI
 import com.example.fortnightly.data.ui.Article
 import com.example.fortnightly.domain._config.usecase.TFUseCase
 import com.example.fortnightly.domain.repository.NewsRepository
-import com.example.fortnightly.domain.usecase.SearchNewsUseCase.Params
+import com.example.fortnightly.domain.usecase.SearchArticleUseCase.Params
 
-class SearchNewsUseCase (
+class SearchArticleUseCase (
 
     private val newsRepository: NewsRepository
 

@@ -12,16 +12,18 @@ import com.example.fortnightly.data.entiny.ArticleCategory
 import com.example.fortnightly.data.ui.Article.Companion.ARTICLE
 import com.example.thefortnightly.R
 import com.example.thefortnightly.activity.ArticleActivity
-import com.example.thefortnightly.adapter.CategoryAdapter
+import com.example.thefortnightly.adapter.ArticlesAdapter
+import com.example.thefortnightly.adapter.ArticlesAdapter.AdapterType.CATEGORY
+import com.example.thefortnightly.adapter.ArticlesAdapter.AdapterType.FIRST_PAGE
+import com.example.thefortnightly.view.listener.ArticleClickHandler
 import com.example.thefortnightly.viewmodel.CategoryNewsViewModel
-import kotlinx.android.synthetic.main.fragment_first_page.*
-import org.koin.androidx.viewmodel.compat.ScopeCompat.viewModel
+import kotlinx.android.synthetic.main.fragment_list_articles.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class CategoryFragment: Fragment() {
+class ArticlesByCategoryFragment: Fragment(), ArticleClickHandler {
 
     private val viewModel by viewModel<CategoryNewsViewModel>()
-    private val categoryAdapter by lazy { CategoryAdapter() }
+    private val categoryAdapter by lazy { ArticlesAdapter(CATEGORY) }
 
     lateinit var articleCategory: ArticleCategory
 
@@ -31,7 +33,7 @@ class CategoryFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         articleCategory = this.arguments?.get(ArticleCategory.ARTICLE_CATEGORY) as ArticleCategory
-        return inflater.inflate(R.layout.fragment_first_page, container, false)
+        return inflater.inflate(R.layout.fragment_list_articles, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -49,7 +51,7 @@ class CategoryFragment: Fragment() {
     }
 
     private fun setupUI() {
-        category_list.adapter = categoryAdapter
+        article_list.adapter = categoryAdapter
         categoryAdapter.articleClickListener = viewModel
     }
 
@@ -60,10 +62,7 @@ class CategoryFragment: Fragment() {
         }
 
         onArticleCliked.observeEvent(viewLifecycleOwner) {article ->
-            Intent(requireContext(), ArticleActivity::class.java).also {intent ->
-                intent.putExtra(ARTICLE, article)
-                requireContext().startActivity(intent)
-            }
+            requireContext().handleArticleCliked(article)
         }
     }
 

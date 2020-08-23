@@ -7,9 +7,9 @@ import com.example.fortnightly.data.ui.Article
 import com.example.thefortnightly.view.listener.ArticleClickListener
 import kotlinx.android.synthetic.main.view_holder_category_small.view.*
 
-class CategoryViewHolder(view: View): RecyclerView.ViewHolder(view) {
+class ArticleSmallViewHolder(view: View): ArticleBaseViewHolder(view) {
 
-    fun bind(article: Article, clickListener: ArticleClickListener?) {
+    override fun bind(article: Article, clickListener: ArticleClickListener?) {
 
         with(itemView) {
             setOnClickListener { clickListener?.onClickArticle(article) }

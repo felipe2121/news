@@ -8,12 +8,14 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.core.view.GravityCompat
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.example.fortnightly.data.entiny.ArticleCategory
 import com.example.fortnightly.data.entiny.ArticleCategory.Companion.ARTICLE_CATEGORY
 import com.example.fortnightly.domain.repository.NewsRemoteRepository
 import com.example.thefortnightly.R
-import com.example.thefortnightly.fragment.CategoryFragment
+import com.example.thefortnightly.fragment.ArticlesByCategoryFragment
+import com.example.thefortnightly.fragment.FirstPageFragment
 import kotlinx.android.synthetic.main.activity_fortnightly.*
 import kotlinx.coroutines.launch
 
@@ -46,14 +48,19 @@ class FortnightlyActivity : AppCompatActivity() {
 
         drawer.addDrawerListener(toogle)
 
-        navigation.setNavigationItemSelectedListener {
+        navigation.setNavigationItemSelectedListener { item ->
 
-            val fragment = CategoryFragment().apply {
-                arguments = bundleOf(ARTICLE_CATEGORY to ArticleCategory.getByOptionsName(it.toString()))
+            @Suppress("IMPLICIT_CAST_TO_ANY")
+            val fragment = if (item.itemId == R.id.navigation_first_page){
+                FirstPageFragment()
+            } else {
+                ArticlesByCategoryFragment().apply {
+                    arguments = bundleOf(ARTICLE_CATEGORY to ArticleCategory.getByOptionsName(item.title.toString()))
+                }
             }
 
             supportFragmentManager.beginTransaction()
-                .replace(R.id.conatiner, fragment)
+                .replace(R.id.conatiner, (fragment as? Fragment) ?: Fragment())
                 .commit()
             drawer.closeDrawer(GravityCompat.START)
             true
@@ -68,7 +75,7 @@ class FortnightlyActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         if(item.itemId == R.id.action_search) {
-            Intent(this, SearchAcitivity::class.java).also {
+            Intent(this, SearchArticleAcitivity::class.java).also {
                 startActivity(it)
             }
             return true

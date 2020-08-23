@@ -17,7 +17,7 @@
         app:titleTextAppearance="@style/ToolBarTitle" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
+        android:id="@+id/search"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -28,14 +28,17 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/search_text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Buscar" />
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:hint="@string/search_hint" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/article_list"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
@@ -43,6 +46,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/search" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
