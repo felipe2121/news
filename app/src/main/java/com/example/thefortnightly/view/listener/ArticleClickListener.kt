@@ -6,9 +6,9 @@ import com.example.fortnightly.data.ui.Article
 
 interface ArticleClickListener {
 
-    val onArticleCliked: MutableLiveData<Event.Data<Article>>
+    val onArticleClicked: MutableLiveData<Event.Data<Article>>
 
     fun onClickArticle (article: Article) {
-        onArticleCliked.value = Event.Data(article)
+        onArticleClicked.value = Event.Data(article)
     }
 }

@@ -1,4 +1,4 @@
-package com.example.fortnightly.data._config
+package com.example.fortnightly.data._config.dao
 
 import androidx.room.Dao
 import androidx.room.Insert

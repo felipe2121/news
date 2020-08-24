@@ -13,7 +13,7 @@ class FirstPageViewModel (
     private val getArticlesFirstPage: GetArticlesOfFirstPageUseCase
 ): ViewModel(), ArticleClickListener {
 
-    override val onArticleCliked = MutableLiveData<Event.Data<Article>>()
+    override val onArticleClicked = MutableLiveData<Event.Data<Article>>()
 
     private val _articles = SingleMediatorLiveData<List<Article>>().apply {
         viewModelScope.launch { this@apply.emit(getArticlesFirstPage.liveResult().asLiveData()) }

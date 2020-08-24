@@ -61,7 +61,7 @@ class ArticlesByCategoryFragment: Fragment(), ArticleClickHandler {
             categoryAdapter.refresh(articles)
         }
 
-        onArticleCliked.observeEvent(viewLifecycleOwner) {article ->
+        onArticleClicked.observeEvent(viewLifecycleOwner) {article ->
             requireContext().handleArticleCliked(article)
         }
     }

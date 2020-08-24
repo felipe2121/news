@@ -1,6 +1,7 @@
 package com.example.thefortnightly.activity
 
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.observe
 import com.bumptech.glide.Glide
@@ -27,6 +28,15 @@ class ArticleActivity: AppCompatActivity() {
         }
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return if (item.itemId == android.R.id.home) {
+            finish()
+            true
+        } else {
+            return super.onOptionsItemSelected(item)
+        }
+    }
+
     private fun setupUI() {
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -36,8 +46,10 @@ class ArticleActivity: AppCompatActivity() {
     private fun bindUI(article: Article) {
         Glide.with(this)
             .load(article.urlToImage)
+            .placeholder(R.drawable.ic_article_placeholder)
             .into(article_image)
             article_title.text = article.title
+            article_description.text = article.description
             article_body.text = article.content
     }
 

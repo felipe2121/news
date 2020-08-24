@@ -9,9 +9,9 @@ import com.example.fortnightly.domain._config.repository.TFRepository
 import kotlinx.coroutines.flow.map
 import java.lang.Exception
 
-class NewsRepository (
-    private val newsLocalRepository: NewsLocalRepository,
-    private val newsRemoteRepository: NewsRemoteRepository
+class ArticleRepository (
+    private val articleLocalRepository: ArticleLocalRepository,
+    private val articleRemoteRepository: ArticleRemoteRepository
 ): TFRepository() {
 
     suspend fun getFirstPage(): kotlinx.coroutines.flow.Flow<List<ArticleEntity>> {
@@ -27,27 +27,23 @@ class NewsRepository (
             }
             return articlesByCategory
         }
-        return newsLocalRepository.getAllAticles().map { articles ->
+        return articleLocalRepository.getAllAticles().map { articles ->
             mapArticlesByCategory(articles)
         }
     }
 
-    suspend fun getArticlesOfCategory(category: ArticleCategory): kotlinx.coroutines.flow.Flow<List<ArticleEntity>> {
-        return newsLocalRepository.getArticlesOfCategory(category)
+    fun getArticlesOfCategory(category: ArticleCategory): kotlinx.coroutines.flow.Flow<List<ArticleEntity>> {
+        return articleLocalRepository.getArticlesOfCategory(category)
     }
 
-
-    suspend fun updateNewsOfCategory (category: ArticleCategory): TFResult<List<ArticleDTO>> {
-        return newsRemoteRepository.fetchTopHeadlines(category).onSuccess {articles ->
-            newsLocalRepository.saveArticles(articles)
-
+    suspend fun fetchNewsOfCategory (category: ArticleCategory): TFResult<List<ArticleDTO>> {
+        return articleRemoteRepository.fetchTopHeadlines(category).onSuccess {articles ->
+            articleLocalRepository.saveArticlesOfCategory(articles, category)
         }
     }
 
-    suspend fun searchNews(query: String): TFResult<List<ArticleDTO>> {
-
-        return newsRemoteRepository.fetchEverything(query)
-
+    suspend fun fetchArticlesOfQuery(query: String): TFResult<List<ArticleDTO>> {
+        return articleRemoteRepository.fetchEverything(query)
     }
 }
 

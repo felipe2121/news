@@ -13,7 +13,7 @@ class CategoryNewsViewModel (
     private val getArticleOfCategory: GetArticleOfCategoryUseCase
 ): ViewModel(), ArticleClickListener {
 
-    override val onArticleCliked = MutableLiveData<Event.Data<Article>>()
+    override val onArticleClicked = MutableLiveData<Event.Data<Article>>()
 
     private val _articles = SingleMediatorLiveData<List<Article>>()
     val articles = _articles as LiveData<List<Article>>

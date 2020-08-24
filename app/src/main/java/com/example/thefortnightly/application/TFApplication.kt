@@ -2,9 +2,9 @@ package com.example.thefortnightly.application
 
 import android.app.Application
 import com.example.fortnightly.data._config.TFDatabase
-import com.example.fortnightly.domain.repository.NewsLocalRepository
-import com.example.fortnightly.domain.repository.NewsRemoteRepository
-import com.example.fortnightly.domain.repository.NewsRepository
+import com.example.fortnightly.domain.repository.ArticleLocalRepository
+import com.example.fortnightly.domain.repository.ArticleRemoteRepository
+import com.example.fortnightly.domain.repository.ArticleRepository
 import com.example.fortnightly.domain.usecase.GetArticleOfCategoryUseCase
 import com.example.fortnightly.domain.usecase.GetArticlesOfFirstPageUseCase
 import com.example.fortnightly.domain.usecase.SearchArticleUseCase
@@ -32,15 +32,14 @@ class TFApplication : Application() {
             val daoModule = module {
 
                 single { TFDatabase.getInstance(get()) }
-
                 single { get<TFDatabase>().articleDAO }
-
+                single { get<TFDatabase>().transactionDAO }
             }
 
             val repositoryModule = module {
-                factory { NewsRemoteRepository() }
-                factory { NewsLocalRepository(articleDAO = get()) }
-                factory { NewsRepository(newsLocalRepository = get(), newsRemoteRepository = get()) }
+                factory { ArticleRemoteRepository() }
+                factory { ArticleLocalRepository(articleDAO = get()) }
+                factory { ArticleRepository(articleLocalRepository = get(), articleRemoteRepository = get()) }
             }
 
             val usecaseModule = module {

@@ -13,11 +13,12 @@ class ArticleLargeViewHolder(view: View): ArticleBaseViewHolder(view) {
 
         with(itemView) {
             setOnClickListener { clickListener?.onClickArticle(article) }
-            category_name.text = article.category
+            category_name.text = article.getFormattedCategory()
             news_title.text = article.title
 
             Glide.with(this)
                 .load(article.urlToImage)
+                .placeholder(R.drawable.ic_article_placeholder)
                 .into(news_tumbnail)
         }
 

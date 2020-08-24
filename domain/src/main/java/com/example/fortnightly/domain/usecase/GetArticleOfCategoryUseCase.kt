@@ -8,7 +8,7 @@ import com.example.fortnightly.data.toEntity
 import com.example.fortnightly.data.toUI
 import com.example.fortnightly.data.ui.Article
 import com.example.fortnightly.domain._config.usecase.TFUseCase
-import com.example.fortnightly.domain.repository.NewsRepository
+import com.example.fortnightly.domain.repository.ArticleRepository
 import com.example.fortnightly.domain.usecase.GetArticleOfCategoryUseCase.*
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emitAll
@@ -17,7 +17,7 @@ import kotlinx.coroutines.flow.map
 
 class GetArticleOfCategoryUseCase (
 
-    private val newsRepository: NewsRepository
+    private val newsRepository: ArticleRepository
 
 ):TFUseCase.Completable<Params, List<Article>, Flow<List<Article>>>() {
 
@@ -35,7 +35,7 @@ class GetArticleOfCategoryUseCase (
 
         if (params == null) return TFResult.failure(TFException())
 
-            return newsRepository.updateNewsOfCategory(params.category)
+            return newsRepository.fetchNewsOfCategory(params.category)
                 .map { it.toEntity().toUI() }
     }
 }

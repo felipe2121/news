@@ -7,16 +7,15 @@ import com.example.fortnightly.data.entiny.ArticleCategory
 import com.example.fortnightly.data.toUI
 import com.example.fortnightly.data.ui.Article
 import com.example.fortnightly.domain._config.usecase.TFUseCase
-import com.example.fortnightly.domain.repository.NewsRepository
+import com.example.fortnightly.domain.repository.ArticleRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emitAll
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
-import java.lang.Exception
 
 class GetArticlesOfFirstPageUseCase (
 
-    private val newsReposity: NewsRepository
+    private val newsReposity: ArticleRepository
 
 ): TFUseCase.Completable<Unit, Any, Flow<List<Article>>>() {
 
@@ -28,13 +27,13 @@ class GetArticlesOfFirstPageUseCase (
 
 
         return try {
-            newsReposity.updateNewsOfCategory(ArticleCategory.BUSINESS).throwOnFailure()
-            newsReposity.updateNewsOfCategory(ArticleCategory.ENTERTAINMENT).throwOnFailure()
-            newsReposity.updateNewsOfCategory(ArticleCategory.GENERAL).throwOnFailure()
-            newsReposity.updateNewsOfCategory(ArticleCategory.HEALTH).throwOnFailure()
-            newsReposity.updateNewsOfCategory(ArticleCategory.SCIENCE).throwOnFailure()
-            newsReposity.updateNewsOfCategory(ArticleCategory.SPORTS).throwOnFailure()
-            newsReposity.updateNewsOfCategory(ArticleCategory.TECHNOLOGY).throwOnFailure()
+            newsReposity.fetchNewsOfCategory(ArticleCategory.BUSINESS).throwOnFailure()
+            newsReposity.fetchNewsOfCategory(ArticleCategory.ENTERTAINMENT).throwOnFailure()
+            newsReposity.fetchNewsOfCategory(ArticleCategory.GENERAL).throwOnFailure()
+            newsReposity.fetchNewsOfCategory(ArticleCategory.HEALTH).throwOnFailure()
+            newsReposity.fetchNewsOfCategory(ArticleCategory.SCIENCE).throwOnFailure()
+            newsReposity.fetchNewsOfCategory(ArticleCategory.SPORTS).throwOnFailure()
+            newsReposity.fetchNewsOfCategory(ArticleCategory.TECHNOLOGY).throwOnFailure()
             TFResult.success("OK")
         } catch (error: TFException) {
             return TFResult.failure(error)

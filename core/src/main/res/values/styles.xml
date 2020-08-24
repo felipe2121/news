@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TFTheme" parent="Base.TFTheme" />
+
+    <style name="Base.TFTheme" parent="Base" >
+
+        <item name="colorPrimary">@color/white_50</item> <!-- -->
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorSecondary">@color/green_200</item>
+        <item name="colorSecondaryVariant">@color/green_500</item>
+
+        <item name="android:colorBackground">@color/white_50</item>
+        <item name="colorSurface">@color/white_50</item>
+        <item name="colorError">@color/red_600</item>
+
+        <item name="colorOnPrimary">@color/black_900</item> <!-- -->
+        <item name="colorOnSecondary">@color/black_900</item>
+        <item name="colorOnBackground">@color/black_900</item>
+        <item name="colorOnSurface">@color/black_900</item>
+        <item name="colorOnError">@color/white_50</item>
+
+    </style>
+
+    <style name="Base" parent="Theme.MaterialComponents.DayNight.NoActionBar" >
+        <item name="textAppearanceHeadline1">@style/TextAppearance.TFTheme.Headline1</item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.TFTheme.Headline2</item>
+        <item name="textAppearanceHeadline3">@style/TextAppearance.TFTheme.Headline3</item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.TFTheme.Headline4</item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.TFTheme.Headline5</item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.TFTheme.Headline6</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.TFTheme.Subtitle1</item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.TFTheme.Subtitle2</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.TFTheme.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.TFTheme.Body2</item>
+        <item name="textAppearanceButton">@style/TextAppearance.TFTheme.Button</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.TFTheme.Caption</item>
+        <item name="textAppearanceOverline">@style/TextAppearance.TFTheme.OverLine</item>
+        <item name="toolbarStyle">@style/Widget.TFTheme.Toolbar.TitleTextAppearance</item>
+    </style>
+
+    <!-- style widget -->
+    <style name="Widget.TFTheme.Toolbar" parent="Widget.MaterialComponents.Toolbar.PrimarySurface">
+       <item name="titleTextAppearance">@style/Widget.TFTheme.Toolbar.TitleTextAppearance</item>
+    </style>
+    
+    <style name="Widget.TFTheme.Toolbar.TitleTextAppearance">
+        <item name="android:fontFamily">@font/cloister_black</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <!-- style text apperence -->
+    <style name="TextAppearance.TFTheme.Headline1" parent="TextAppearance.MaterialComponents.Headline1" >
+        <item name="fontFamily">@font/merriweather_blackitalic</item>
+        <item name="android:fontFamily">@font/merriweather_blackitalic</item>
+        <item name="android:textSize">96sp</item>
+        <item name="android:textColor">@color/tf_text_color_headline</item>
+    </style>
+
+    <style name="TextAppearance.TFTheme.Headline2" parent="TextAppearance.MaterialComponents.Headline2" >
+        <item name="fontFamily">@font/librefranklin_light</item>
+        <item name="android:fontFamily">@font/librefranklin_light</item>
+        <item name="android:textSize">60sp</item>
+        <item name="android:textColor">@color/tf_text_color_headline</item>
+    </style>
+
+    <style name="TextAppearance.TFTheme.Headline3" parent="TextAppearance.MaterialComponents.Headline3" >
+        <item name="fontFamily">@font/merriweather_blackitalic</item>
+        <item name="android:fontFamily">@font/merriweather_blackitalic</item>
+        <item name="android:textSize">48sp</item>
+        <item name="android:textColor">@color/tf_text_color_headline</item>
+    </style>
+
+    <style name="TextAppearance.TFTheme.Headline4" parent="TextAppearance.MaterialComponents.Headline4" >
+        <item name="fontFamily">@font/librefranklin_regular</item>
+        <item name="android:fontFamily">@font/librefranklin_regular</item>
+        <item name="android:textSize">34sp</item>
+        <item name="android:textColor">@color/tf_text_color_headline</item>
+    </style>
+
+    <style name="TextAppearance.TFTheme.Headline5" parent="TextAppearance.MaterialComponents.Headline5" >
+        <item name="fontFamily">@font/librefranklin_regular</item>
+        <item name="android:fontFamily">@font/librefranklin_regular</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/tf_text_color_headline</item>
+    </style>
+
+    <style name="TextAppearance.TFTheme.Headline6" parent="TextAppearance.MaterialComponents.Headline6" >
+        <item name="fontFamily">@font/merriweather_blackitalic</item>
+        <item name="android:fontFamily">@font/merriweather_blackitalic</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/tf_text_color_headline</item>
+    </style>
+
+    <style name="TextAppearance.TFTheme.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1" >
+        <item name="fontFamily">@font/librefranklin_medium</item>
+        <item name="android:fontFamily">@font/librefranklin_medium</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/tf_text_color_subtitle</item>
+    </style>
+
+    <style name="TextAppearance.TFTheme.Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2" >
+        <item name="fontFamily">@font/merriweather_medium</item>
+        <item name="android:fontFamily">@font/merriweather_medium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/tf_text_color_subtitle</item>
+    </style>
+
+    <style name="TextAppearance.TFTheme.Body1" parent="TextAppearance.MaterialComponents.Body1" >
+        <item name="fontFamily">@font/merriweather_regular</item>
+        <item name="android:fontFamily">@font/merriweather_regular</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/tf_text_color_body</item>
+    </style>
+
+    <style name="TextAppearance.TFTheme.Body2" parent="TextAppearance.MaterialComponents.Body2" >
+        <item name="fontFamily">@font/librefranklin_regular</item>
+        <item name="android:fontFamily">@font/librefranklin_regular</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/tf_text_color_body</item>
+    </style>
+
+    <style name="TextAppearance.TFTheme.Button" parent="TextAppearance.MaterialComponents.Button" >
+        <item name="fontFamily">@font/librefranklin_bold</item>
+        <item name="android:fontFamily">@font/librefranklin_bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/tf_text_color_button</item>
+    </style>
+
+    <style name="TextAppearance.TFTheme.Caption" parent="TextAppearance.MaterialComponents.Caption" >
+        <item name="fontFamily">@font/merriweather_italicregular</item>
+        <item name="android:fontFamily">@font/merriweather_italicregular</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/tf_text_color_caption</item>
+    </style>
+
+    <style name="TextAppearance.TFTheme.OverLine" parent="TextAppearance.MaterialComponents.Overline" >
+        <item name="fontFamily">@font/librefranklin_bold</item>
+        <item name="android:fontFamily">@font/librefranklin_bold</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/tf_text_color_overline</item>
+    </style>
+
+</resources>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

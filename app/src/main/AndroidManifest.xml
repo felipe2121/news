@@ -10,7 +10,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/TFTheme">
 
         <activity android:name=".activity.FortnightlyActivity">
             <intent-filter>
@@ -22,8 +22,7 @@
         <activity android:name=".activity.SearchArticleAcitivity"
             android:parentActivityName=".activity.FortnightlyActivity" />
 
-        <activity android:name=".activity.ArticleActivity"
-            android:parentActivityName=".activity.FortnightlyActivity" />
+        <activity android:name=".activity.ArticleActivity" />
 
     </application>
 

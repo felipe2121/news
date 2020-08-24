@@ -45,7 +45,7 @@ class FirstPageFragment : Fragment(), ArticleClickHandler {
             articlesAdapter.refresh(it)
         }
 
-        onArticleCliked.observeEvent(viewLifecycleOwner) {article ->
+        onArticleClicked.observeEvent(viewLifecycleOwner) {article ->
             requireContext().handleArticleCliked(article)
         }
     }

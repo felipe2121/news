@@ -50,7 +50,7 @@ class SearchArticleAcitivity: AppCompatActivity(), ArticleClickHandler {
         articles.observe(this@SearchArticleAcitivity) {
             articlesAdapter.refresh(it)
         }
-        onArticleCliked.observeEvent(this@SearchArticleAcitivity) {
+        onArticleClicked.observeEvent(this@SearchArticleAcitivity) {
             this@SearchArticleAcitivity.handleArticleCliked(it)
         }
     }

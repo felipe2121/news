@@ -15,8 +15,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:title="@string/app_name"
-            app:titleTextAppearance="@style/ToolBarTitle" />
+            app:title="@string/app_name" />
 
         <FrameLayout
             android:id="@+id/conatiner"
@@ -31,6 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        app:itemBackground="@drawable/sc_nav_menu_background"
         app:headerLayout="@layout/navigation_header"
         app:menu="@menu/menu_navigation" />
 

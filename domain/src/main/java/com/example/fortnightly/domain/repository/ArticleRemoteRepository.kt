@@ -7,9 +7,9 @@ import com.example.fortnightly.data.dto.ArticleDTO
 import com.example.fortnightly.data.entiny.ArticleCategory
 import com.example.fortnightly.domain._config.repository.TFRepository
 
-class NewsRemoteRepository: TFRepository.Remote() {
+class ArticleRemoteRepository: TFRepository.Remote() {
 
-    private val api by retrofit<NewsApi>()
+    private val api by retrofit<ArticleApi>()
 
     suspend fun fetchEverything(query: String): TFResult<List<ArticleDTO>> {
         return executeRequest(api) { fetchEverything(query) }

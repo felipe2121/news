@@ -1,6 +1,7 @@
 package com.example.fortnightly.data.ui
 
 import android.os.Parcelable
+import com.example.fortnightly.data.entiny.ArticleCategory
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
@@ -16,5 +17,9 @@ data class Article (
 ): Parcelable {
     companion object {
         const val ARTICLE = "article"
+    }
+
+    fun getFormattedCategory(): String {
+        return if (category.isBlank()) "" else ArticleCategory.getByCategoryName(category).optionName
     }
 }
