@@ -1,6 +1,8 @@
 package com.example.thefortnightly.activity
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.observe
@@ -28,10 +30,27 @@ class ArticleActivity: AppCompatActivity() {
         }
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return if (item.itemId == android.R.id.home) {
+        if (item.itemId == android.R.id.home) {
             finish()
-            true
+            return true
+        }
+        if (item.itemId == R.id.action_share) {
+            val sendIntent: Intent = Intent().apply {
+                action = Intent.ACTION_SEND
+                putExtra(Intent.EXTRA_TEXT, "This is my text to send.")
+                type = "text/plain"
+            }
+
+            val shareIntent = Intent.createChooser(sendIntent, null)
+            startActivity(shareIntent)
+
+            return true
         } else {
             return super.onOptionsItemSelected(item)
         }
