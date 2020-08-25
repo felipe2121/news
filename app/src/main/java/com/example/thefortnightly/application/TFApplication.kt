@@ -9,7 +9,7 @@ import com.example.fortnightly.domain.usecase.GetArticleOfCategoryUseCase
 import com.example.fortnightly.domain.usecase.GetArticlesOfFirstPageUseCase
 import com.example.fortnightly.domain.usecase.SearchArticleUseCase
 import com.example.thefortnightly.viewmodel.ArticleViewModel
-import com.example.thefortnightly.viewmodel.CategoryNewsViewModel
+import com.example.thefortnightly.viewmodel.ArticlesByCategoryViewModel
 import com.example.thefortnightly.viewmodel.FirstPageViewModel
 import com.example.thefortnightly.viewmodel.SearchArticleViewModel
 import org.koin.android.ext.koin.androidContext
@@ -49,7 +49,7 @@ class TFApplication : Application() {
             }
 
             val viewModule = module {
-                factory { CategoryNewsViewModel(getArticleOfCategory = get()) }
+                factory { ArticlesByCategoryViewModel(getArticleOfCategory = get()) }
                 factory { ArticleViewModel() }
                 factory { FirstPageViewModel(getArticlesFirstPage = get()) }
                 factory { SearchArticleViewModel(searchArticle = get()) }

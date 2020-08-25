@@ -73,7 +73,7 @@ class TFNetworkException : TFException {
         UNEXPECTED(StringWrapper(R.string.network_error_try_again))
     }
 
-    override var errorMessage: StringWrapper?
+    override var errorMessage: StringWrapper
 
     var errorCode: NetworkExceptionCode
 

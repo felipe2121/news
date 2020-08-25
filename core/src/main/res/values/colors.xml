@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    
+    <color name="nav_text_selected">#7A7A7A</color>
+    <color name="nav_text_unselected">#323232</color>
+    
     <!-- base colors -->
     <color name="tf_color_primary">#6200EE</color>
     <color name="tf_color_primary_dark">#3700B3</color>

@@ -52,10 +52,10 @@ class FortnightlyActivity : AppCompatActivity() {
         if (lastNavigation !=  null) outState.putInt(NAVIGATION_MENU_ID, lastNavigation!!)
     }
 
-    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+    /*override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
         savedInstanceState.getInt(NAVIGATION_MENU_ID, -1).takeIf { it != -1 }?.let { id --> navigateTo(id) }
-    }
+    }*/
 
     private fun setUpUI() {
         setSupportActionBar(toolbar)

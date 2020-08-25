@@ -15,5 +15,5 @@ open class TFException: Exception {
         writableStackTrace: Boolean
     ) : super(message, cause, enableSuppression, writableStackTrace)
 
-    open var errorMessage: StringWrapper? = StringWrapper("Ocorreu um erro inesperado")
+    open var errorMessage: StringWrapper = StringWrapper("Ocorreu um erro inesperado")
 }

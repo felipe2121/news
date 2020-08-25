@@ -7,6 +7,7 @@
 
     <!-- Acitons -->
     <string name="action_search_title">Buscar</string>
+    <string name="action_share_title">Compartilhar</string>
 
     <!-- Navigiton -->
     <string name="navigation_first_page_title">Primeira página</string>
@@ -21,5 +22,10 @@
 
     <!-- search hints -->
     <string name="search_hint">Buscar</string>
+
+    <!-- empty messages -->
+    <string name="empty_text_articles_category">Nao existem artigos para esta categoria.</string>
+
+    <!-- error messages -->
 
 </resources>
