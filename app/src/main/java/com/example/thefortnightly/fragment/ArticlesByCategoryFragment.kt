@@ -54,9 +54,7 @@ class ArticlesByCategoryFragment: Fragment(), ArticleClickHandler {
         categoryAdapter.articleClickListener = viewModel
         categoryAdapter.registerAdapterDataObserver(object : RecyclerView.AdapterDataObserver() {
             override fun onChanged() {
-                if (viewModel.viewState.value is ViewState.LoadingState
-                    && categoryAdapter.itemCount != 0
-                ) {
+                if (viewModel.viewState.value is ViewState.LoadingState && categoryAdapter.itemCount != 0) {
                     progress.visibility = View.GONE
                 }
             }

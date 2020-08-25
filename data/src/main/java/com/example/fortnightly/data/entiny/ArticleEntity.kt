@@ -6,13 +6,13 @@ import com.example.fortnightly.data.dto.SourceDTO
 
 
 enum class ArticleCategory(val categoryName: String, val optionName: String) {
-    BUSINESS("business", "Negócios"),
-    ENTERTAINMENT("entertainment", "Entreterimento"),
-    GENERAL("general", "Geral"),
-    HEALTH("health", "Saúde"),
-    SCIENCE("science", "Ciência"),
-    SPORTS("sports", "Esportes"),
-    TECHNOLOGY("technology", "Tecnologia");
+    BUSINESS("Business", "Negócios"),
+    ENTERTAINMENT("Entertainment", "Entreterimento"),
+    GENERAL("General", "Geral"),
+    HEALTH("Health", "Saúde"),
+    SCIENCE("Science", "Ciência"),
+    SPORTS("Sports", "Esportes"),
+    TECHNOLOGY("Technology", "Tecnologia");
 
     companion object {
 

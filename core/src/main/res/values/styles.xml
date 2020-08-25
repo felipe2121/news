@@ -6,7 +6,7 @@
     <style name="Base.TFTheme" parent="Base" >
 
         <item name="colorPrimary">@color/white_50</item> <!-- -->
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimaryVariant">@color/white_50</item>
         <item name="colorSecondary">@color/green_200</item>
         <item name="colorSecondaryVariant">@color/green_500</item>
 
@@ -38,6 +38,8 @@
         <item name="textAppearanceOverline">@style/TextAppearance.TFTheme.OverLine</item>
         <item name="toolbarStyle">@style/Widget.TFTheme.Toolbar.TitleTextAppearance</item>
     </style>
+
+    
 
     <!-- style widget -->
     <style name="Widget.TFTheme.Toolbar" parent="Widget.MaterialComponents.Toolbar.PrimarySurface">

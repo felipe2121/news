@@ -14,6 +14,9 @@ class ArticleSmallViewHolder(view: View): ArticleBaseViewHolder(view) {
 
         with(itemView) {
             setOnClickListener { clickListener?.onClickArticle(article) }
+            if(article.category.isEmpty()) {
+                category_name.visibility = View.GONE
+            }
             category_name.text = article.category
             news_title.text = article.title
 
