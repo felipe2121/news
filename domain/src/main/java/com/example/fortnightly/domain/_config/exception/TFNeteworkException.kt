@@ -59,6 +59,7 @@ class TFNetworkException : TFException {
      *  #UNEXPECTED - Um erro inesperado.
      *
      * */
+
     enum class NetworkExceptionCode(val message: StringWrapper) {
         CLIENT(StringWrapper(R.string.network_error_try_again)),
         SERVER(StringWrapper(R.string.network_error_server)),

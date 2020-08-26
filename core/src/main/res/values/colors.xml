@@ -3,11 +3,24 @@
     
     <color name="nav_text_selected">#7A7A7A</color>
     <color name="nav_text_unselected">#323232</color>
+
+    <!-- app icon -->
+    <color name="ic_launcher_background">#FFFFFF</color>
     
     <!-- base colors -->
-    <color name="tf_color_primary">#6200EE</color>
-    <color name="tf_color_primary_dark">#3700B3</color>
-    <color name="tf_color_accent">#03DAC5</color>
+    <color name="tf_color_primary">#9FABB2</color>
+    <color name="tf_color_on_primary">#000000</color>
+    <color name="tf_color_primary_variant">#FFFFFF</color>
+    <color name="tf_color_secondary">#000000</color>
+    <color name="tf_color_on_secondary">#FFFFFF</color>
+    <color name="tf_color_secondary_variant">#000000</color>
+    <color name="tf_color_background">#FFFFFF</color>
+    <color name="tf_color_on_background">#000000</color>
+    <color name="tf_color_surface">#FFFFFF</color>
+    <color name="tf_color_on_surface">#000000</color>
+    <color name="tf_color_error">#B00020</color>
+    <color name="tf_color_on_error">#000000</color>
+    <color name="tf_color_status_bar">#E5E5E5</color>
 
     <!-- text colors -->
     <color name="tf_text_color_headline">#000000</color>

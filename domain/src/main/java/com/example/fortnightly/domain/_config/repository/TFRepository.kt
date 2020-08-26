@@ -18,7 +18,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 abstract class TFRepository {
 
     companion object {
-
         const val API_KEY = "X-Api-Key"
     }
 
@@ -35,6 +34,7 @@ abstract class TFRepository {
             return Retrofit.Builder()
                 .baseUrl("http://newsapi.org/v2/")
                 .addConverterFactory(GsonConverterFactory.create())
+                .client(clientBuilder.build())
                 .build()
 
         }

@@ -52,10 +52,12 @@ class FortnightlyActivity : AppCompatActivity() {
         if (lastNavigation !=  null) outState.putInt(NAVIGATION_MENU_ID, lastNavigation!!)
     }
 
-    /*override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
-        savedInstanceState.getInt(NAVIGATION_MENU_ID, -1).takeIf { it != -1 }?.let { id --> navigateTo(id) }
-    }*/
+        savedInstanceState.getInt(NAVIGATION_MENU_ID, -1).takeIf { it != -1 }?.let { id ->
+                navigateTo(id)
+        }
+    }
 
     private fun setUpUI() {
         setSupportActionBar(toolbar)
@@ -86,7 +88,9 @@ class FortnightlyActivity : AppCompatActivity() {
         val fragment = if (id == R.id.navigation_first_page){
             FirstPageFragment()
         } else {
+
             val navigationItem = navigation.menu.findItem(id)
+
             ArticlesByCategoryFragment().apply {
                 arguments = bundleOf(ARTICLE_CATEGORY to ArticleCategory.getByOptionsName(navigationItem.title.toString()))
             }

@@ -10,10 +10,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        android:fontFamily="@font/cloister_black"
         android:text="@string/app_name"
-        android:textColor="@color/text_on_surace"
-        android:textSize="25sp"
+        android:textAppearance="@style/Widget.TFTheme.Toolbar.TitleTextAppearance"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

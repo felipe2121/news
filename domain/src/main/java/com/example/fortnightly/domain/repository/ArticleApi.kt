@@ -11,7 +11,7 @@ interface ArticleApi {
     @GET("everything")
     suspend fun fetchEverything (
         @Query("q") query: String,
-        @Query("country") country: String = "br",
+        @Query("language") country: String = "pt",
         @Header(API_KEY) token: String = "f3de9e4035f145f49a9762c673aa5f8a"
     ): ArticleResponseDTO
 

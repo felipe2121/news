@@ -19,7 +19,7 @@ class ArticleRemoteRepository: TFRepository.Remote() {
     suspend fun fetchTopHeadlines(category: ArticleCategory): TFResult<List<ArticleDTO>> {
         return executeRequest(api) { fetchTopHeadlines(category.categoryName) }
             .onSuccess { response ->
-                response.articles?.forEach { it.category = category.categoryName }
+                response.articles?.forEach { it.category = category.optionName }
             }.map { it.articles?: emptyList() }
     }
 }

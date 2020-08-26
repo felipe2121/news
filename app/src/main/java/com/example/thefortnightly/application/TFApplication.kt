@@ -12,6 +12,7 @@ import com.example.thefortnightly.viewmodel.ArticleViewModel
 import com.example.thefortnightly.viewmodel.ArticlesByCategoryViewModel
 import com.example.thefortnightly.viewmodel.FirstPageViewModel
 import com.example.thefortnightly.viewmodel.SearchArticleViewModel
+import com.facebook.stetho.Stetho
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import org.koin.dsl.module
@@ -20,6 +21,7 @@ class TFApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        Stetho.initializeWithDefaults(this);
         setUpKoin()
     }
 

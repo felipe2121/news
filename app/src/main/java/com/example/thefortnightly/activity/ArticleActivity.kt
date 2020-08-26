@@ -12,6 +12,7 @@ import com.example.fortnightly.data.ui.Article.Companion.ARTICLE
 import com.example.thefortnightly.R
 import com.example.thefortnightly.viewmodel.ArticleViewModel
 import kotlinx.android.synthetic.main.activity_article.*
+import kotlinx.android.synthetic.main.view_holder_category_small.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ArticleActivity: AppCompatActivity() {
@@ -43,7 +44,7 @@ class ArticleActivity: AppCompatActivity() {
         if (item.itemId == R.id.action_share) {
             val sendIntent: Intent = Intent().apply {
                 action = Intent.ACTION_SEND
-                putExtra(Intent.EXTRA_TEXT, "This is my text to send.")
+                putExtra(Intent.EXTRA_TEXT, "${viewModel.article.value?.title} \"${viewModel.article.value?.url}\"")
                 type = "text/plain"
             }
 

@@ -5,24 +5,21 @@
 
     <style name="Base.TFTheme" parent="Base" >
 
-        <item name="colorPrimary">@color/white_50</item> <!-- -->
-        <item name="colorPrimaryVariant">@color/white_50</item>
-        <item name="colorSecondary">@color/green_200</item>
-        <item name="colorSecondaryVariant">@color/green_500</item>
+        <item name="colorPrimary">@color/tf_color_primary</item>
+        <item name="colorPrimaryVariant">@color/tf_color_primary_variant</item>
+        <item name="colorSecondary">@color/tf_color_secondary</item>
+        <item name="colorSecondaryVariant">@color/tf_color_secondary_variant</item>
 
-        <item name="android:colorBackground">@color/white_50</item>
-        <item name="colorSurface">@color/white_50</item>
-        <item name="colorError">@color/red_600</item>
+        <item name="android:colorBackground">@color/tf_color_background</item>
+        <item name="colorSurface">@color/tf_color_surface</item>
+        <item name="colorError">@color/tf_color_error</item>
 
-        <item name="colorOnPrimary">@color/black_900</item> <!-- -->
-        <item name="colorOnSecondary">@color/black_900</item>
-        <item name="colorOnBackground">@color/black_900</item>
-        <item name="colorOnSurface">@color/black_900</item>
-        <item name="colorOnError">@color/white_50</item>
+        <item name="colorOnPrimary">@color/tf_color_on_primary</item>
+        <item name="colorOnSecondary">@color/tf_color_on_secondary</item>
+        <item name="colorOnBackground">@color/tf_color_on_background</item>
+        <item name="colorOnSurface">@color/tf_color_on_surface</item>
+        <item name="colorOnError">@color/tf_color_on_error</item>
 
-    </style>
-
-    <style name="Base" parent="Theme.MaterialComponents.DayNight.NoActionBar" >
         <item name="textAppearanceHeadline1">@style/TextAppearance.TFTheme.Headline1</item>
         <item name="textAppearanceHeadline2">@style/TextAppearance.TFTheme.Headline2</item>
         <item name="textAppearanceHeadline3">@style/TextAppearance.TFTheme.Headline3</item>
@@ -37,13 +34,19 @@
         <item name="textAppearanceCaption">@style/TextAppearance.TFTheme.Caption</item>
         <item name="textAppearanceOverline">@style/TextAppearance.TFTheme.OverLine</item>
         <item name="toolbarStyle">@style/Widget.TFTheme.Toolbar.TitleTextAppearance</item>
+
     </style>
 
-    
+    <style name="Base" parent="Theme.MaterialComponents.DayNight.NoActionBar" >
+        <item name="android:statusBarColor">@color/tf_color_status_bar</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
 
     <!-- style widget -->
     <style name="Widget.TFTheme.Toolbar" parent="Widget.MaterialComponents.Toolbar.PrimarySurface">
-       <item name="titleTextAppearance">@style/Widget.TFTheme.Toolbar.TitleTextAppearance</item>
+        <item name="titleTextAppearance">@style/Widget.TFTheme.Toolbar.TitleTextAppearance</item>
+        <item name="android:background">@color/tf_color_primary_variant</item>
     </style>
     
     <style name="Widget.TFTheme.Toolbar.TitleTextAppearance">

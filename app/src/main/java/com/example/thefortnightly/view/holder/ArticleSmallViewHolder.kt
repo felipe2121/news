@@ -14,9 +14,14 @@ class ArticleSmallViewHolder(view: View): ArticleBaseViewHolder(view) {
 
         with(itemView) {
             setOnClickListener { clickListener?.onClickArticle(article) }
-            if(article.category.isEmpty()) {
+
+            if(article.category.isBlank()) {
                 category_name.visibility = View.GONE
+            } else {
+                category_name.text = article.getFormattedCategory()
+                category_name.visibility = View.VISIBLE
             }
+
             category_name.text = article.category
             news_title.text = article.title
 

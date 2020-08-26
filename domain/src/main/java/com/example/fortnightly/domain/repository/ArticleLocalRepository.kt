@@ -16,8 +16,8 @@ class ArticleLocalRepository (
         return articleDAO.getAll()
     }
 
-    fun getArticlesOfCategory(category: ArticleCategory): Flow<List <ArticleEntity>> {
-        return articleDAO.getByCategory(category.categoryName)
+    fun getArticlesOfCategory(category: ArticleCategory): Flow<List<ArticleEntity>> {
+        return articleDAO.getByCategory(category.optionName)
     }
 
     suspend fun saveArticlesOfCategory(articles: List<ArticleDTO>, category: ArticleCategory) = executeTransaction {
