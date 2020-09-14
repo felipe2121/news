@@ -14,26 +14,22 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 
 class GetArticlesOfFirstPageUseCase (
-
-    private val newsReposity: ArticleRepository
-
+    private val newsRepository: ArticleRepository
 ): TFUseCase.Completable<Unit, Any, Flow<List<Article>>>() {
 
     override suspend fun liveResult(params: Unit?) = flow {
-        emitAll(newsReposity.getFirstPage().map { it.toUI() })
+        emitAll(newsRepository.getFirstPage().map { it.toUI() })
     }
 
     override suspend fun execute(params: Unit?): TFResult<Any> {
-
-
         return try {
-            newsReposity.fetchNewsOfCategory(ArticleCategory.BUSINESS).throwOnFailure()
-            newsReposity.fetchNewsOfCategory(ArticleCategory.ENTERTAINMENT).throwOnFailure()
-            newsReposity.fetchNewsOfCategory(ArticleCategory.GENERAL).throwOnFailure()
-            newsReposity.fetchNewsOfCategory(ArticleCategory.HEALTH).throwOnFailure()
-            newsReposity.fetchNewsOfCategory(ArticleCategory.SCIENCE).throwOnFailure()
-            newsReposity.fetchNewsOfCategory(ArticleCategory.SPORTS).throwOnFailure()
-            newsReposity.fetchNewsOfCategory(ArticleCategory.TECHNOLOGY).throwOnFailure()
+            newsRepository.fetchNewsOfCategory(ArticleCategory.BUSINESS).throwOnFailure()
+            newsRepository.fetchNewsOfCategory(ArticleCategory.ENTERTAINMENT).throwOnFailure()
+            newsRepository.fetchNewsOfCategory(ArticleCategory.GENERAL).throwOnFailure()
+            newsRepository.fetchNewsOfCategory(ArticleCategory.HEALTH).throwOnFailure()
+            newsRepository.fetchNewsOfCategory(ArticleCategory.SCIENCE).throwOnFailure()
+            newsRepository.fetchNewsOfCategory(ArticleCategory.SPORTS).throwOnFailure()
+            newsRepository.fetchNewsOfCategory(ArticleCategory.TECHNOLOGY).throwOnFailure()
             TFResult.success("OK")
         } catch (error: TFException) {
             return TFResult.failure(error)

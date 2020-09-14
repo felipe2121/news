@@ -8,4 +8,5 @@
         <item name="android:windowLightNavigationBar">true</item>
         <item name="android:navigationBarDividerColor">?attr/colorControlHighlight</item>
     </style>
+
 </resources>

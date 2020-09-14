@@ -1,11 +1,9 @@
 package com.example.thefortnightly.activity
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.observe
 import com.example.fortnightly.core.state.ViewState
 import com.example.fortnightly.core.util.hideKeyboard
@@ -20,7 +18,7 @@ import kotlinx.android.synthetic.main.activity_search.*
 import kotlinx.android.synthetic.main.activity_search.article_list
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class SearchArticleAcitivity: AppCompatActivity(), ArticleClickHandler {
+class SearchArticleActivity: AppCompatActivity(), ArticleClickHandler {
 
     private val viewModel by viewModel<SearchArticleViewModel>()
     private val articlesAdapter by lazy { ArticlesAdapter(SEARCH) }
@@ -28,6 +26,7 @@ class SearchArticleAcitivity: AppCompatActivity(), ArticleClickHandler {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
+
         setUpUI()
         subscribeUI()
     }
@@ -58,15 +57,15 @@ class SearchArticleAcitivity: AppCompatActivity(), ArticleClickHandler {
         }
     }
 
-    private fun subscribeUI() = viewModel.run {
-        articles.observe(this@SearchArticleAcitivity) {
+    private fun subscribeUI() = viewModel.apply {
+        articles.observe(this@SearchArticleActivity) {
             articlesAdapter.refresh(it)
         }
-        onArticleClicked.observeEvent(this@SearchArticleAcitivity) {
-            this@SearchArticleAcitivity.handleArticleCliked(it)
+        onArticleClicked.observeEvent(this@SearchArticleActivity) {
+            this@SearchArticleActivity.handleArticleCliked(it)
         }
 
-        viewState.observe(this@SearchArticleAcitivity) { it ->
+        viewState.observe(this@SearchArticleActivity) { it ->
 
             progress.visibility = View.GONE
             empty_text.visibility = View.GONE
@@ -82,15 +81,14 @@ class SearchArticleAcitivity: AppCompatActivity(), ArticleClickHandler {
                 is ViewState.ErrorState -> {
                     error_text.visibility = if (articlesAdapter.itemCount == 0) View.VISIBLE else View.GONE
                     if (error_text.visibility == View.GONE) {
-                        Snackbar.make(Container, it.message(this@SearchArticleAcitivity), Snackbar.LENGTH_LONG).show()
+                        Snackbar.make(Container, it.message(this@SearchArticleActivity), Snackbar.LENGTH_LONG).show()
                     } else {
-                        error_text.text = it.message(this@SearchArticleAcitivity)
+                        error_text.text = it.message(this@SearchArticleActivity)
                     }
                 }
             }
         }
     }
-
 }
 
 

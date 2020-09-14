@@ -1,7 +1,5 @@
 package com.example.fortnightly.data.dto
 
-import com.google.gson.annotations.SerializedName
-
 data class ArticleDTO(
     var sourceDTO: SourceDTO? = null,
     var author: String? = null,

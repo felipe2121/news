@@ -14,7 +14,7 @@ class ArticleRepository (
     private val articleRemoteRepository: ArticleRemoteRepository
 ): TFRepository() {
 
-    suspend fun getFirstPage(): kotlinx.coroutines.flow.Flow<List<ArticleEntity>> {
+    fun getFirstPage(): kotlinx.coroutines.flow.Flow<List<ArticleEntity>> {
 
         fun mapArticlesByCategory(articles: List<ArticleEntity>): List<ArticleEntity> {
 
@@ -27,7 +27,7 @@ class ArticleRepository (
             }
             return articlesByCategory
         }
-        return articleLocalRepository.getAllAticles().map { articles ->
+        return articleLocalRepository.getAllArticles().map { articles ->
             mapArticlesByCategory(articles)
         }
     }
@@ -37,7 +37,8 @@ class ArticleRepository (
     }
 
     suspend fun fetchNewsOfCategory (category: ArticleCategory): TFResult<List<ArticleDTO>> {
-        return articleRemoteRepository.fetchTopHeadlines(category).onSuccess {articles ->
+        return articleRemoteRepository.fetchTopHeadlines(category)
+            .onSuccess { articles ->
             articleLocalRepository.saveArticlesOfCategory(articles, category)
         }
     }

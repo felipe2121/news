@@ -10,6 +10,7 @@ import retrofit2.http.DELETE
 @Dao
 abstract class ArticleDAO: DAO<ArticleEntity>() {
 
+    // flow/list
     @Query("SELECT * FROM article")
     abstract fun getAll(): Flow<List<ArticleEntity>>
 

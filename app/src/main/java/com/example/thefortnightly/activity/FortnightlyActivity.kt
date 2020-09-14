@@ -27,6 +27,7 @@ class FortnightlyActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fortnightly)
+
         setUpUI()
 
         if (savedInstanceState == null) navigateTo(R.id.navigation_first_page)
@@ -39,7 +40,7 @@ class FortnightlyActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(item.itemId == R.id.action_search) {
-            Intent(this, SearchArticleAcitivity::class.java).also {
+            Intent(this, SearchArticleActivity::class.java).also {
                 startActivity(it)
             }
             return true

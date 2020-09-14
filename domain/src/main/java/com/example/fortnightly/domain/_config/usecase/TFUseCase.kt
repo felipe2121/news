@@ -11,13 +11,16 @@ interface ITFUseCase<PARAMS, RESULT, LIVERESULT> {
     suspend fun execute(params: PARAMS? = null): TFResult<RESULT>
 }
 
-abstract class TFUseCase<PARAMS, RESULT, out EXECUTOR : TFUseCase.UseCaseExecutor<PARAMS, RESULT>, LIVERESULT> private constructor() : ITFUseCase<PARAMS, RESULT, LIVERESULT> {
+abstract class TFUseCase<PARAMS, RESULT, out EXECUTOR : TFUseCase.UseCaseExecutor<PARAMS, RESULT>, LIVERESULT> private constructor() :
+    ITFUseCase<PARAMS, RESULT, LIVERESULT> {
 
-    abstract class UseCaseExecutor<PARAMS, RESULT>(var params: PARAMS? = null): CoroutineScope by MainScope() {
+    abstract class UseCaseExecutor<PARAMS, RESULT>(var params: PARAMS? = null) :
+        CoroutineScope by MainScope() {
         abstract suspend fun execute()
     }
 
-    abstract class Completable<PARAMS, RESULT, LIVERESULT> : TFUseCase<PARAMS, RESULT, Completable<PARAMS, RESULT, LIVERESULT>.CompletableUseCaseExecutor, LIVERESULT>() {
+    abstract class Completable<PARAMS, RESULT, LIVERESULT> :
+        TFUseCase<PARAMS, RESULT, Completable<PARAMS, RESULT, LIVERESULT>.CompletableUseCaseExecutor, LIVERESULT>() {
 
         inner class CompletableUseCaseExecutor : UseCaseExecutor<PARAMS, RESULT>() {
 
@@ -38,13 +41,17 @@ abstract class TFUseCase<PARAMS, RESULT, out EXECUTOR : TFUseCase.UseCaseExecuto
 
                 launch {
                     _onStarted()
-                    try{
+                    try {
                         withContext(Dispatchers.Default) { execute(params) }
                             .onSuccess {
                                 _onSuccess(it)
                             }
                             .onFailure {
-                                if (it is TFException) _onFailure(it) else _onFailure(TFException(cause = it))
+                                if (it is TFException) _onFailure(it) else _onFailure(
+                                    TFException(
+                                        cause = it
+                                    )
+                                )
                             }
                     } catch (e: Exception) {
                         if (e is TFException) _onFailure(e) else _onFailure(TFException(cause = e))

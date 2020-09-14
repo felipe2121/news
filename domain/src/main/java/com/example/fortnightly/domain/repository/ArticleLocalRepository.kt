@@ -12,7 +12,7 @@ class ArticleLocalRepository (
     private val articleDAO: ArticleDAO
 ): TFRepository.Local() {
 
-    fun getAllAticles(): Flow<List<ArticleEntity>> {
+    fun getAllArticles(): Flow<List<ArticleEntity>> {
         return articleDAO.getAll()
     }
 

@@ -9,7 +9,6 @@ import com.example.thefortnightly.view.listener.ArticleClickListener
 import kotlinx.coroutines.launch
 
 class FirstPageViewModel (
-
     private val getArticlesFirstPage: GetArticlesOfFirstPageUseCase
 ): ViewModel(), ArticleClickListener {
 

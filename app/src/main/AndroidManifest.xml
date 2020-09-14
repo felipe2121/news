@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.SearchArticleAcitivity"
+        <activity android:name=".activity.SearchArticleActivity"
             android:parentActivityName=".activity.FortnightlyActivity"
             android:screenOrientation="portrait"/>
 

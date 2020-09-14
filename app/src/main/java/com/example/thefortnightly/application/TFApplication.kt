@@ -32,7 +32,6 @@ class TFApplication : Application() {
             androidContext(this@TFApplication)
 
             val daoModule = module {
-
                 single { TFDatabase.getInstance(get()) }
                 single { get<TFDatabase>().articleDAO }
                 single { get<TFDatabase>().transactionDAO }
@@ -44,9 +43,9 @@ class TFApplication : Application() {
                 factory { ArticleRepository(articleLocalRepository = get(), articleRemoteRepository = get()) }
             }
 
-            val usecaseModule = module {
+            val useCaseModule = module {
                 factory { GetArticleOfCategoryUseCase(newsRepository = get()) }
-                factory { GetArticlesOfFirstPageUseCase(newsReposity = get()) }
+                factory { GetArticlesOfFirstPageUseCase(newsRepository = get()) }
                 factory { SearchArticleUseCase(newsRepository = get()) }
             }
 
@@ -57,7 +56,7 @@ class TFApplication : Application() {
                 factory { SearchArticleViewModel(searchArticle = get()) }
             }
 
-            modules(listOf(daoModule, repositoryModule, usecaseModule, viewModule))
+            modules(listOf(daoModule, repositoryModule, useCaseModule, viewModule))
         }
     }
 }

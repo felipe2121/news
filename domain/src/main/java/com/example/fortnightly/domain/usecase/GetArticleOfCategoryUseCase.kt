@@ -16,16 +16,14 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 
 class GetArticleOfCategoryUseCase (
-
     private val newsRepository: ArticleRepository
-
 ):TFUseCase.Completable<Params, List<Article>, Flow<List<Article>>>() {
 
     data class Params(val category: ArticleCategory)
 
     override suspend fun liveResult(params: Params?) = flow {
         if (params == null) {
-            emit(emptyList<Article>())
+            emit(emptyList())
         } else {
             emitAll(newsRepository.getArticlesOfCategory(params.category).map { it.toUI() })
         }

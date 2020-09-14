@@ -2,8 +2,6 @@ package com.example.fortnightly.data.entiny
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.fortnightly.data.dto.SourceDTO
-
 
 enum class ArticleCategory(val categoryName: String, val optionName: String) {
     BUSINESS("Business", "Negócios"),
