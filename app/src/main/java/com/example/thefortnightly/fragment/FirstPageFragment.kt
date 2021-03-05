@@ -41,6 +41,7 @@ class FirstPageFragment : Fragment(), ArticleClickHandler {
     }
 
     private fun subscribeUI() = viewModel.run {
+
         articles.observe(viewLifecycleOwner) {
             articlesAdapter.refresh(it)
         }
@@ -50,17 +51,3 @@ class FirstPageFragment : Fragment(), ArticleClickHandler {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

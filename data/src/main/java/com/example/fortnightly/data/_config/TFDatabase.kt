@@ -14,7 +14,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 @Database(
-    version = BuildConfig.VERSION_CODE,
+    version = 2,
     exportSchema = false,
     entities = [
         ArticleEntity::class

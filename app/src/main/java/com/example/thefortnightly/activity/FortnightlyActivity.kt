@@ -93,7 +93,11 @@ class FortnightlyActivity : AppCompatActivity() {
             val navigationItem = navigation.menu.findItem(id)
 
             ArticlesByCategoryFragment().apply {
-                arguments = bundleOf(ARTICLE_CATEGORY to ArticleCategory.getByOptionsName(navigationItem.title.toString()))
+                arguments = bundleOf(
+                        ARTICLE_CATEGORY to ArticleCategory.getByOptionsName(
+                                navigationItem.title.toString()
+                        )
+                )
             }
         }
 
@@ -107,21 +111,3 @@ class FortnightlyActivity : AppCompatActivity() {
         lastNavigation = id
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
